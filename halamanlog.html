@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login Neon</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial;
+}
+
+body{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:black;
+  
+
+
+
+.box{
+    width:320px;
+    padding:40px;
+    background:#1f1f1f;
+    border-radius:25px;
+    box-shadow:0 0 25px cyan;
+  transition:0.1s;
+transform-style:preserve-3d;
+  backdrop-filter:blur(10px);
+animation:float 3s ease-in-out infinite;
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+}
+
+h2{
+    color:white;
+    text-align:center;
+    margin-bottom:30px;
+    font-size:40px;
+}
+
+input{
+    width:100%;
+    padding:15px;
+    margin-top:20px;
+    border:none;
+    border-radius:30px;
+    outline:none;
+    font-size:18px;
+  
+    animation:updown 1s infinite alternate;
+}
+
+@keyframes updown{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-5px);
+    }
+
+
+}
+
+.btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    padding:15px;
+    margin-top:25px;
+    background:cyan;
+    color:black;
+    text-decoration:none;
+    border-radius:30px;
+    font-size:22px;
+    font-weight:bold;
+    animation:updown 1s infinite alternate;
+}
+
+@keyframes updown{
+
+ from{
+ transform:translateY(0px);
+ }
+
+ to{
+ transform:translateY(-5px);
+}
+
+}
+
+.btn:hover{
+    background:#00bcd4;
+}
+  .circle{
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:cyan;
+    border-radius:50%;
+    top:10%;
+    left:10%;
+    filter:blur(80px);
+
+    animation:move 5s infinite alternate;
+    @keyframes move{
+
+    from{
+        transform:translateX(0px);
+    }
+
+    to{
+        transform:translateX(100px);
+    }
+
+}
+}
+
+.circle2{
+    position:absolute;
+    width:200px;
+    height:200px;
+    background:purple;
+    border-radius:50%;
+    bottom:10%;
+    right:10%;
+    filter:blur(80px);
+
+    animation:move2 5s infinite alternate;
+   @keyframes move{
+
+    from{
+        transform:translateX(0px);
+    }
+
+    to{
+        transform:translateX(100px);
+    }
+
+}
+
+
+</style>
+</head>
+
+<body>
+<div class="circle"></div>
+<div class="circle2"></div>
+
+<div class="box">
+
+<h2>LOGIN</h2>
+<script>
+
+const box = document.querySelector(".box");
+
+window.addEventListener("deviceorientation", (event) => {
+
+    let x = event.gamma;
+    let y = event.beta;
+
+    box.style.transform =
+    `rotateY(${x}deg) rotateX(${y/10}deg)`;
+
+});
+
+</script>
+
+<input type="text" placeholder="Username">
+
+<input type="password" placeholder="Password">
+
+<a href="https://youtu.be/H-DeO-hnyTc?si=5h0UGDbRwfAUn0xG" class="btn">Sign In</a>
+
+</div>
+
+</body>
+</html>
